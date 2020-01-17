@@ -3,19 +3,20 @@ import { Field, reduxForm } from 'redux-form';
 
 class Signin extends Component {
 
-    renderInput(Field) {
+    renderInput(field) {
         return <input className="form-control" {...field.input} type="field.type"/>
     }
 
-    handleSubmit = function () {
-        console.log('trying to handle');
+    handleFormSubmit({email, password})  {
+        console.log(email)
+        console.log(password)
     }
 
     render() {
         const { handleSubmit } = this.props; 
 
         return (
-        <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <label htmlFor="email">Email</label>
             <Field name="email" component={this.renderInput} type="text"/>
             <label htmlFor="password">Password</label> 
